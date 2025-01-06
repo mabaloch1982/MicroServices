@@ -4,12 +4,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping("/api/demo")
 public class Democontroller {
 
     @GetMapping("/hello")
     public String hello(){
-        return "Hello World New 1/5/2025 12:36 AM";
+        return "Hello World Time: " + LocalDateTime.now();
     }
 }

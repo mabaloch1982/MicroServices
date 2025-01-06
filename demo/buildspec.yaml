@@ -26,11 +26,13 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"Demo","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      #- printf '[{"name":"Demo","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - echo Writing image definitions file...
       # add your container name
       - DOCKER_CONTAINER_NAME=demo
       - printf '[{"name":"%s","imageUri":"%s"}]' $DOCKER_CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      #- sed -i -e "s|DOCKER_CONTAINER_NAME|$ContainerName|g" imagedefinitions.json
+      #- sed -i -e "s|IMAGE_URI|$ImageURI|g" imagedefinitions.json
       - echo $DOCKER_CONTAINER_NAME
       - echo printing imagedefinitions.json
       - cat imagedefinitions.json
