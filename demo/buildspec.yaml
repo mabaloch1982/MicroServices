@@ -3,8 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - cd demo
-      - mvn clean install
+      #- cd demo
       - echo Logging in to Amazon ECR...
       - aws --version
       - REPOSITORY_URI=460007647618.dkr.ecr.us-east-1.amazonaws.com/demo
@@ -14,6 +13,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - echo Building the jar file
+      - mvn clean install
       - echo Building the Docker image...
       - ls -R
       - docker build -t $REPOSITORY_URI:latest .
