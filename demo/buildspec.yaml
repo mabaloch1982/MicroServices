@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      #- cd demo
+      - cd demo
       - echo Logging in to Amazon ECR...
       - aws --version
       - REPOSITORY_URI=460007647618.dkr.ecr.us-east-1.amazonaws.com/demo
