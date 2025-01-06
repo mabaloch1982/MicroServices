@@ -37,5 +37,5 @@ phases:
 
 artifacts:
   files:
-    - imagedefinitions.json
+    - demo/target/imagedefinitions.json
     - demo/target/demo.jar
